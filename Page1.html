@@ -91,8 +91,8 @@
             const popup = document.getElementById("popupMessage");
 
             if (validCodes.includes(inputCode)) {
-                // Redirect to the main page of the app
-                window.location.href = "main-page.html";
+                // Redirect to the dashboard page if the code is valid
+                window.location.href = "dashboard.html";
             } else {
                 // Show the invalid code message
                 popup.style.display = "block";
