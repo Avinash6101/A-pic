@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APIC Profile</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background: #4b79a1; /* Single color background */
+            color: #fff;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3); /* Transparent premium effect */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .header h2 {
+            font-size: 1.2em;
+            margin: 5px 0;
+            font-weight: 300;
+        }
+
+        /* Profile Page Container */
+        .profile-container {
+            text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Profile Picture Section */
+        .profile-pic-container {
+            margin-bottom: 20px;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #007bff;
+        }
+
+        .upload-pfp-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .upload-pfp-button:hover {
+            background-color: #0056b3;
+        }
+
+        .upload-pfp {
+            display: none;
+        }
+
+        /* Nickname Section */
+        .nickname-container {
+            margin-top: 20px;
+        }
+
+        .nickname-container input {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        /* View Credits Button */
+        .view-credits-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .view-credits-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Bottom Navigation Bar */
+        .nav-bar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background: #0b3d91;
+            padding: 10px 0;
+            box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-button {
+            text-align: center;
+            color: #fff;
+            font-size: 0.9em;
+            text-decoration: none;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .nav-button i {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+
+        .nav-button:hover {
+            color: #ffd700; /* Premium gold color */
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>APIC</h1>
+        <h2>BY AVINASH</h2>
+    </div>
+
+    <!-- Profile Page Content -->
+    <div class="profile-container">
+        <!-- Circular Profile Picture -->
+        <div class="profile-pic-container">
+            <img id="profile-pic" src="default-pfp.jpg" alt="Profile Picture" class="profile-pic">
+        </div>
+
+        <!-- Upload Button -->
+        <button class="upload-pfp-button" onclick="document.getElementById('upload-pfp').click()">Upload Profile Picture</button>
+        <input type="file" id="upload-pfp" class="upload-pfp" onchange="uploadPFP()" />
+
+        <!-- Nickname Section -->
+        <div class="nickname-container">
+            <label for="nickname">Nickname:</label>
+            <input type="text" id="nickname" placeholder="Enter your nickname">
+        </div>
+
+        <!-- View Credits Button -->
+        <button class="view-credits-button" onclick="viewCredits()">View Credits</button>
+    </div>
+
+    <!-- Bottom Navigation Bar -->
+    <div class="nav-bar">
+        <a href="dashboard.html" class="nav-button">
+            <i class="fas fa-home"></i> Home
+        </a>
+        <a href="page2.html" class="nav-button">
+            <i class="fas fa-folder"></i> Your Projects
+        </a>
+        <a href="Page4.html" class="nav-button"> <!-- Updated link to Page4.html -->
+            <i class="fas fa-user"></i> Profile
+        </a>
+    </div>
+
+    <!-- FontAwesome for Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <script>
+        function uploadPFP() {
+            const fileInput = document.getElementById('upload-pfp');
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                document.getElementById('profile-pic').src = e.target.result;
+            }
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // View Credits Function (Redirect to the APIC website)
+        function viewCredits() {
+            window.location.href = 'https://apicindia.netlify.app'; // Direct redirect
+        }
+    </script>
+</body>
+</html>
